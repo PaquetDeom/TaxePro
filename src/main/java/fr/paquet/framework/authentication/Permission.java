@@ -2,7 +2,7 @@ package fr.paquet.framework.authentication;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import fr.paquet.framework.ProgItem;
+import fr.paquet.framework.TaItem;
 import fr.paquet.framework.ui.Ihm;
 
 @Ihm(libelle = "Permissions")
@@ -19,7 +19,7 @@ import fr.paquet.framework.ui.Ihm;
 		@AttributeOverride(name = "deleteUser", column = @Column(name = "XPXSUPUSR")),
 		@AttributeOverride(name = "deleteOrigin", column = @Column(name = "XPXSUPPGM")),
 		@AttributeOverride(name = "deleteDate", column = @Column(name = "XPXSUPDAT")) })
-public class Permission extends ProgItem {
+public class Permission extends TaItem {
 
 	@Id
 	@GeneratedValue

@@ -9,20 +9,20 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Panel;
 import fr.paquet.framework.AnnotationInfo;
-import fr.paquet.framework.ProgContainer;
-import fr.paquet.framework.ProgItem;
+import fr.paquet.framework.*;
+
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.FormLayout;
 
-public class CRUDView extends AbsoluteLayout implements Property.ValueChangeListener, Handler, ClickListener, ProgView {
+public class CRUDView extends AbsoluteLayout implements Property.ValueChangeListener, Handler, ClickListener, TaView {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Class<ProgItem> entityClass = null;
+	private Class<TaItem> entityClass = null;
 	private Panel panel;
 
 	/**
@@ -49,17 +49,17 @@ public class CRUDView extends AbsoluteLayout implements Property.ValueChangeList
 	 */
 	private void buildView() {
 		setSizeFull();
-		GridBasedCrudComponent<ProgItem> crud = new GridBasedCrudComponent<ProgItem>(entityClass);
+		GridBasedCrudComponent<TaItem> crud = new GridBasedCrudComponent<TaItem>(entityClass);
 		FormLayout layout=new FormLayout();
 		layout.addComponent(crud);
 		
-		ProgContainer container= new ProgContainer(entityClass);
+		TaContainer container= new TaContainer(entityClass);
 		crud.setFindAllOperation(container);
 		crud.setAddOperation(container.add());
 		crud.setUpdateOperation(container.update());
 		crud.setDeleteOperation(container.delete());
 		crud.getGrid().setColumns(new AnnotationInfo(entityClass).getGridNames());
-		crud.setCrudFormFactory(new ProgCrudFormFactory(entityClass));
+		crud.setCrudFormFactory(new TaCrudFormFactory(entityClass));
 		panel = new Panel(getCaption());
 		panel.setSizeFull();
 		addComponent(panel);

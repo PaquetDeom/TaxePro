@@ -38,7 +38,7 @@ public class MainScreen extends HorizontalLayout {
 		// définie le style CSS
 		setStyleName("main-screen");
 		// renseigne la classe chargée de faire les conversions  
-		VaadinSession.getCurrent().setConverterFactory(new ProgConverterFactory());
+		VaadinSession.getCurrent().setConverterFactory(new TaConverterFactory());
 		
 		//Container principal
 		CssLayout viewContainer = new CssLayout();
@@ -59,7 +59,7 @@ public class MainScreen extends HorizontalLayout {
 	}
 
 	//Ajoute une vue au menu
-	public void addView(ProgView view) {
+	public void addView(TaView view) {
 		menu.addView(view, view.getCaption(), view.getCaption(), view.getIcon());
 	}
 	// notify the view menu about view changes so that it can display which view

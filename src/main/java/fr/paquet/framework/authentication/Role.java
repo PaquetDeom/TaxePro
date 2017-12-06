@@ -4,7 +4,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import fr.paquet.framework.ProgItem;
+import fr.paquet.framework.TaItem;
 import fr.paquet.framework.ui.Ihm;
 
 @Ihm(libelle = "Roles")
@@ -21,7 +21,7 @@ import fr.paquet.framework.ui.Ihm;
 		@AttributeOverride(name = "deleteUser", column = @Column(name = "XRXSUPUSR")),
 		@AttributeOverride(name = "deleteOrigin", column = @Column(name = "XRXSUPPGM")),
 		@AttributeOverride(name = "deleteDate", column = @Column(name = "XRXSUPDAT")) })
-public class Role extends ProgItem implements Comparable<Role> {
+public class Role extends TaItem implements Comparable<Role> {
 
 	@Id
 	@GeneratedValue

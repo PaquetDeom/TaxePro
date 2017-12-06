@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import fr.paquet.framework.ProgContainer;
-import fr.paquet.framework.ProgItem;
+
+import fr.paquet.framework.*;
 import fr.paquet.framework.ui.Ihm;
 
 @Ihm(libelle = "Utilisateur")
@@ -22,7 +22,7 @@ import fr.paquet.framework.ui.Ihm;
 		@AttributeOverride(name = "deleteUser", column = @Column(name = "XUXSUPUSR")),
 		@AttributeOverride(name = "deleteOrigin", column = @Column(name = "XUXSUPPGM")),
 		@AttributeOverride(name = "deleteDate", column = @Column(name = "XUXSUPDAT")) })
-public class User extends ProgItem {
+public class User extends TaItem {
 	@NotNull
 	@Id
 	@Column(name = "XUXUUSR", length = 20)
@@ -100,7 +100,7 @@ public class User extends ProgItem {
 	}
 
 	public static User findByLogin(String username) {
-		Query q = ProgContainer.getQuery("select user FROM User user where user.login LIKE :username");
+		Query q = TaContainer.getQuery("select user FROM User user where user.login LIKE :username");
 		q.setParameter("username", username);
 		q.setMaxResults(1);
 		if (q.getResultList().size() > 0)
