@@ -30,7 +30,7 @@ import fr.paquet.framework.*;
 @Theme("caftheme")
 public class TAUI extends UI {
 
-	public static final String PERSISTENCE_UNIT = "progress";
+	public static final String PERSISTENCE_UNIT = "TaxePro";
 	
 
 	public static String getPersistenceUnit() {
@@ -114,7 +114,7 @@ public class TAUI extends UI {
 		return (TAUI) UI.getCurrent();
 	}
 
-	@WebServlet(urlPatterns = "/*", name = "TAServlet", asyncSupported = true)
+	@WebServlet(urlPatterns = "/*", name = "TAUIServlet", asyncSupported = true)
 	@VaadinServletConfiguration(ui = TAUI.class, productionMode = false)
 	public static class TAUIServlet extends VaadinServlet {
 	}

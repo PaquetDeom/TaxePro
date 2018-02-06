@@ -15,7 +15,7 @@ import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 public class TaFactory {
 	private static final long serialVersionUID = 1L;
 
-	public static final String PERSISTENCE_UNIT = "progress";
+	public static final String PERSISTENCE_UNIT = "TaxePro";
 	private static EntityManager em;
 
 	// définition du lien avec la base de donnée
@@ -74,7 +74,7 @@ public class TaFactory {
 		getEntityManager().getTransaction().commit();
 		return entity;
 	}
-	
+
 	public static void flush() {
 		getEntityManager().flush();
 	}
